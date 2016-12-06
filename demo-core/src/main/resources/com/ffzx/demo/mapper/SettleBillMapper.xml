@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ffzx.demo.mapper.SettleBillMapper">
+<!-- <resultMap type="com.ffzx.stms.model.SettleBill" id="base">
+	 <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+</resultMap> -->
+<select id="findByVendorCode" parameterType="java.lang.String" resultType="com.ffzx.demo.model.SettleBill">
+	select t.code from settle_bill t left join uc_db.vendor v on t.vendor_code=v.code where vendor_code=#{vendorCode,jdbcType=VARCHAR}
+</select>
+</mapper>
